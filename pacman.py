@@ -52,8 +52,19 @@ class PacMan:
 
         self.tick += 1 
     
-    def draw(self,screen):
+    def draw(self,screen, direction):
 
         # Draw pacman
+
         r = self.tick%6
-        screen.blit(self.images[r], (self.col*32, self.row*32)) 
+
+        if direction == "left":
+            screen.blit(self.images[r], (self.col*32, self.row*32))
+        elif direction == "right":
+            screen.blit(pg.transform.rotate(self.images[r],180), (self.col*32, self.row*32))
+        elif direction == "up":
+            screen.blit(pg.transform.rotate(self.images[r],-90), (self.col*32, self.row*32))
+        elif direction == "down":
+            screen.blit(pg.transform.rotate(self.images[r],90), (self.col*32, self.row*32))
+        else:
+            screen.blit(self.images[0], (self.col*32, self.row*32))  
