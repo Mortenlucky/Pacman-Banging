@@ -10,8 +10,9 @@ from level import Level
 
 ## Setup ##
 pg.init()
-
-screen = pg.display.set_mode((8*32,7*32))
+width = 500 #8*32
+height = 500 #7*32
+screen = pg.display.set_mode((width,height))
 pg.display.set_caption("Pac-Man (clone)")
 
 font_press_enter = pg.font.Font(None, 32)
@@ -84,4 +85,4 @@ while running:
         pg.display.flip()  
 
         # Limit framerate by waiting a 10-100 milliseconds
-        time.sleep(0.15)
+        time.sleep(0.05)
