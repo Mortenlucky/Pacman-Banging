@@ -25,8 +25,18 @@ class Ghost:
 
 
     def move(self, level):
-        self.col += random.randint(-1,1)
-        self.row += random.randint(-1,1)
+        cor = random.randint(1,2)
+        movement = random.randint(-1,1)
+        if cor == 1:
+            if level.tiles[self.row][self.col+movement] != "#":
+                self.col += movement
+            elif level.tiles[self.row+movement][self.col] != "#":
+                self.row += movement
+        else:
+            if level.tiles[self.row+movement][self.col] != "#":
+                self.row += movement
+            elif level.tiles[self.row][self.col+movement] != "#":
+                self.col += movement
 
         self.tick += 1 
     
