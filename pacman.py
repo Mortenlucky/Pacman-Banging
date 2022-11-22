@@ -13,6 +13,7 @@ class PacMan:
 
         self.col = col
         self.row = row
+        self.point = 0
 
         self.images = []
         for i in range(6):
@@ -26,6 +27,7 @@ class PacMan:
     def move(self, level, direction):
         # Move pacman
         moving = False
+
         if direction == "up":
             if level.tiles[self.row-1][self.col] != "#":
                 self.row -= 1
@@ -43,6 +45,23 @@ class PacMan:
             if level.tiles[self.row][self.col+1] != "#":
                 self.col += 1 
                 moving = True
+
+        if level.tiles[self.row][self.col] == " ":
+            level.tiles[self.row][self.col] = "."
+            self.point += 10
+            #run = True
+            #templist = []
+            #while run:
+                #try:
+                    #templist.append(level.tiles[self.row][self.col])
+                    #level.tiles[self.row].pop(self.col)
+                #except:
+                    #run = False
+            
+            #for i in range(len(templist)-1):
+                #level.tiles[self.row].append(templist[i+1])
+            
+            #level.tiles[self.row] = level.tiles[self.row][:self.col] + ["p"] + level.tiles[self.row][self.col+1:]
 
         if moving:
             if self.tick%2 == 0:

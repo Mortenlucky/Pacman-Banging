@@ -77,7 +77,7 @@ while running:
 
         ## Draw ##
         screen.fill((0,0,0)) 
-        level.draw(screen)
+        level.draw(screen, pacman)
         ghost.draw(screen)
         pacman.draw(screen, direction)
 
