@@ -10,8 +10,8 @@ from level import Level
 
 ## Setup ##
 pg.init()
-width = 650 #8*32
-height = 690 #7*32
+width = 610 #8*32
+height = 675 #7*32
 screen = pg.display.set_mode((width,height))
 pg.display.set_caption("Pac-Man (clone)")
 
