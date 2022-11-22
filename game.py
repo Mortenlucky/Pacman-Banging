@@ -29,7 +29,6 @@ while running:
         level = Level("level.txt")
         state = "READY"
 
-
     elif state == "READY":
         text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
         text_rect = text.get_rect(center=(608/2, 384/2)) 
@@ -46,7 +45,6 @@ while running:
         pg.display.flip()  
         time.sleep(0.1)
         
-
     elif state == "PLAY":
 
         ## Handle events (keypresses etc.)
