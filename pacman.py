@@ -30,21 +30,17 @@ class PacMan:
         # Move pacman
         print(int(self.row/32), int(self.col/32), self.collision_check)
         if direction == "up":
-            if level.tiles[int(self.row/32-1)][int(self.col/32)] == "#":
+            if level.tiles[round(self.row/32-1)][round(self.col/32)] != "#":
                 self.row -= 4
-                moving = True
         elif direction == "down":
             if level.tiles[int(self.row/32+1)][int(self.col/32)] != "#":
                 self.row += 4
-                moving = True
         elif direction == "left":
             if level.tiles[int(self.row/32)][int(self.col/32-1)] != "#":
                 self.col -= 4
-                moving = True
         elif direction == "right":
             if level.tiles[int(self.row/32)][int(self.col/32+1)] != "#":
                 self.col += 4
-                moving = True
 
         if self.moving:
             if self.tick%2 == 0:
