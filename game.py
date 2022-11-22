@@ -29,10 +29,9 @@ while running:
         level = Level("level.txt")
         state = "READY"
 
-
     elif state == "READY":
         text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
-        text_rect = text.get_rect(center=(8*32/2, 7*32/2)) 
+        text_rect = text.get_rect(center=(width/2, height/2)) 
         screen.blit(text, text_rect)
 
         events = pg.event.get()
@@ -46,7 +45,6 @@ while running:
         pg.display.flip()  
         time.sleep(0.1)
         
-
     elif state == "PLAY":
 
         ## Handle events (keypresses etc.)
@@ -73,7 +71,6 @@ while running:
         ## Move / logic ##
         pacman.move(level,direction)
         ghost.move(level)
-
 
         ## Draw ##
         screen.fill((0,0,0)) 
