@@ -11,8 +11,11 @@ class PacMan:
         self.sound_move0.set_volume(0.5)
         self.sound_move1.set_volume(0.5)
 
-        self.col = col
-        self.row = row
+        self.col = col * 32
+        self.row = row * 32
+
+        self.collision_check = 0
+        self.moving = True
 
         self.images = []
         for i in range(6):
@@ -25,26 +28,25 @@ class PacMan:
 
     def move(self, level, direction):
         # Move pacman
-        moving = False
+        print(int(self.row/32), int(self.col/32), self.collision_check)
         if direction == "up":
-            if level.tiles[self.row-1][self.col] != "#":
-                self.row -= 1
+            if level.tiles[int(self.row/32-1)][int(self.col/32)] == "#":
+                self.row -= 4
                 moving = True
-
         elif direction == "down":
-            if level.tiles[self.row+1][self.col] != "#":
-                self.row += 1
+            if level.tiles[int(self.row/32+1)][int(self.col/32)] != "#":
+                self.row += 4
                 moving = True
         elif direction == "left":
-            if level.tiles[self.row][self.col-1] != "#":
-                self.col -= 1
+            if level.tiles[int(self.row/32)][int(self.col/32-1)] != "#":
+                self.col -= 4
                 moving = True
         elif direction == "right":
-            if level.tiles[self.row][self.col+1] != "#":
-                self.col += 1 
+            if level.tiles[int(self.row/32)][int(self.col/32+1)] != "#":
+                self.col += 4
                 moving = True
 
-        if moving:
+        if self.moving:
             if self.tick%2 == 0:
                 self.sound_move0.play()
             else:
@@ -59,12 +61,12 @@ class PacMan:
         r = self.tick%6
 
         if direction == "left":
-            screen.blit(self.images[r], (self.col*32, self.row*32))
+            screen.blit(self.images[r], (self.col, self.row))
         elif direction == "right":
-            screen.blit(pg.transform.rotate(self.images[r],180), (self.col*32, self.row*32))
+            screen.blit(pg.transform.rotate(self.images[r],180), (self.col, self.row))
         elif direction == "up":
-            screen.blit(pg.transform.rotate(self.images[r],-90), (self.col*32, self.row*32))
+            screen.blit(pg.transform.rotate(self.images[r],-90), (self.col, self.row))
         elif direction == "down":
-            screen.blit(pg.transform.rotate(self.images[r],90), (self.col*32, self.row*32))
+            screen.blit(pg.transform.rotate(self.images[r],90), (self.col, self.row))
         else:
-            screen.blit(self.images[0], (self.col*32, self.row*32))  
+            screen.blit(self.images[0], (self.col, self.row))  
