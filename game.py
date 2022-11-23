@@ -10,8 +10,8 @@ from level import Level
 
 ## Setup ##
 pg.init()
-width = 608 #8*32
-height = 384 #7*32
+width = 610 #8*32
+height = 675 #7*32
 screen = pg.display.set_mode((width,height))
 pg.display.set_caption("Pac-Man (clone)")
 
@@ -29,9 +29,10 @@ while running:
         level = Level("level.txt")
         state = "READY"
 
+
     elif state == "READY":
         text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
-        text_rect = text.get_rect(center=(608/2, 384/2)) 
+        text_rect = text.get_rect(center=(width/2, height/2)) 
         screen.blit(text, text_rect)
 
         events = pg.event.get()
@@ -45,6 +46,7 @@ while running:
         pg.display.flip()  
         time.sleep(0.1)
         
+
     elif state == "PLAY":
 
         ## Handle events (keypresses etc.)
@@ -71,7 +73,6 @@ while running:
         ## Move / logic ##
         pacman.move(level,direction)
         ghost.move(level)
-
 
         ## Draw ##
         screen.fill((0,0,0)) 

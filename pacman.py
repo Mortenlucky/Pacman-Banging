@@ -23,16 +23,23 @@ class PacMan:
 
         self.tick = 0
 
-
     def move(self, level, direction):
         # Move pacman
         moving = False
-
+        # self_row = self_x
+        # self_col = self_y
         if direction == "up":
+            if level.tiles[self.row-1][self.col] != "<":
+                #self.row == x-coordinate to >
+                #self.col == y-coordinate to >
+                moving = True
+            if level.tiles[self.row-1][self.col] != ">":
+                #self.row == coordinate to <
+                #self.col == coordinate to <
+                moving = True
             if level.tiles[self.row-1][self.col] != "#":
                 self.row -= 1
                 moving = True
-
         elif direction == "down":
             if level.tiles[self.row+1][self.col] != "#":
                 self.row += 1
