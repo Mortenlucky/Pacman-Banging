@@ -29,7 +29,6 @@ while running:
         level = Level("level.txt")
         state = "READY"
 
-
     elif state == "READY":
         text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
         text_rect = text.get_rect(center=(8*32/2, 7*32/2)) 
@@ -85,4 +84,4 @@ while running:
         pg.display.flip()  
 
         # Limit framerate by waiting a 10-100 milliseconds
-        time.sleep(0.10)
+        time.sleep(0.05)

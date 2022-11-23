@@ -14,7 +14,7 @@ class PacMan:
         self.col = col * 32
         self.row = row * 32
 
-        self.collision_check = 0
+
         self.moving = True
 
         self.images = []
@@ -28,19 +28,27 @@ class PacMan:
 
     def move(self, level, direction):
         # Move pacman
-        print(int(self.row/32), int(self.col/32), self.collision_check)
+        print(round(self.row/32), int(self.col/32))
         if direction == "up":
-            if level.tiles[round(self.row/32-1)][round(self.col/32)] != "#":
-                self.row -= 4
-        elif direction == "down":
-            if level.tiles[int(self.row/32+1)][int(self.col/32)] != "#":
+            self.row -= 4
+            if level.tiles[round((self.row-12)/32)][round(self.col/32)] == "#":
                 self.row += 4
+                direction = None
+        elif direction == "down":
+            self.row += 4
+            if level.tiles[round((self.row+16)/32)][round(self.col/32)] == "#":
+                self.row -= 4
+                direction = None
         elif direction == "left":
-            if level.tiles[int(self.row/32)][int(self.col/32-1)] != "#":
-                self.col -= 4
-        elif direction == "right":
-            if level.tiles[int(self.row/32)][int(self.col/32+1)] != "#":
+            self.col -= 4
+            if level.tiles[round(self.row/32)][round((self.col-12)/32)] == "#":
                 self.col += 4
+                direction = None
+        elif direction == "right":
+            self.col += 4
+            if level.tiles[round(self.row/32)][round((self.col+16)/32)] == "#":
+                self.col -= 4
+                direction = None
 
         if self.moving:
             if self.tick%2 == 0:
