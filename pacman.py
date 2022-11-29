@@ -11,6 +11,7 @@ class PacMan:
         self.sound_move0.set_volume(0.5)
         self.sound_move1.set_volume(0.5)
 
+        self.start = [row,col]
         self.col = col
         self.row = row
         self.point = 0
@@ -96,9 +97,15 @@ class PacMan:
 
         self.tick += 1 
     
-    def draw(self,screen):
+    def draw(self,screen, direction, ghostr, ghostc, state):
 
         # Draw pacman
+        self.state = state
+
+        if ghostr == self.row and ghostc == self.col:
+            self.state = "LOAD"
+            #self.row = self.start[0]
+            #self.col = self.start[1]
 
         r = self.tick%6
 

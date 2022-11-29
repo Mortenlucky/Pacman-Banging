@@ -23,8 +23,10 @@ running = True
 while running:
     
     if state == "LOAD":
+        screen.fill((0,0,0)) 
         pacman = PacMan(1,1)
         ghost = Ghost(3,2)
+        #ghost2 = Ghost(5,2)
         direction = None
         level = Level("level.txt")
         state = "READY"
@@ -72,16 +74,19 @@ while running:
 
         ## Move / logic ##
         pacman.move(level,direction)
-        ghost.move(level)
+        ghost.move(level, pacman.row, pacman.col)
+
 
         ## Draw ##
         screen.fill((0,0,0)) 
         level.draw(screen, pacman)
         ghost.draw(screen)
-        pacman.draw(screen)
+        #ghost2.draw(screen)
+        pacman.draw(screen, direction, ghost.row, ghost.col, state)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
 
         # Limit framerate by waiting a 10-100 milliseconds
+        state = pacman.state
         time.sleep(0.05)
