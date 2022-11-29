@@ -30,20 +30,20 @@ class PacMan:
         # self_col = self_y
         print(self.row, self.col)
         if direction == "up":
-            if level.tiles[int(self.row-0.5)][int(self.col)] != "#":
-                self.row -= 0.5
+            if level.tiles[int(self.row-0.125)][int(self.col)] != "#" and self.col-int(self.col) == 0:
+                self.row -= 0.125
                 moving = True
         elif direction == "down":
-            if level.tiles[int(self.row+1)][int(self.col)] != "#":
-                self.row += 0.5
+            if level.tiles[int(self.row+1)][int(self.col)] != "#" and self.col-int(self.col) == 0:
+                self.row += 0.125
                 moving = True
         elif direction == "left":
-            if level.tiles[int(self.row)][int(self.col-0.5)] != "#":
-                self.col -= 0.5
+            if level.tiles[int(self.row)][int(self.col-0.125)] != "#" and self.row-int(self.row) == 0:
+                self.col -= 0.125
                 moving = True
         elif direction == "right":
-            if level.tiles[int(self.row)][int(self.col+1)] != "#":
-                self.col += 0.5
+            if level.tiles[int(self.row)][int(self.col+1)] != "#" and self.row-int(self.row) == 0:
+                self.col += 0.125
                 moving = True
 
         if level.tiles[int(self.row)][int(self.col)] == " ":

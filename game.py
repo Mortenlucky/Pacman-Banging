@@ -84,4 +84,4 @@ while running:
         pg.display.flip()  
 
         # Limit framerate by waiting a 10-100 milliseconds
-        time.sleep(0.15)
+        time.sleep(0.05)
