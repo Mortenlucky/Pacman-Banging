@@ -28,8 +28,9 @@ class PacMan:
         moving = False
         # self_row = self_x
         # self_col = self_y
+        print(self.row, self.col)
         if direction == "up":
-            if level.tiles[int(self.row-1)][int(self.col)] != "#":
+            if level.tiles[int(self.row-0.5)][int(self.col)] != "#":
                 self.row -= 0.5
                 moving = True
         elif direction == "down":
@@ -37,7 +38,7 @@ class PacMan:
                 self.row += 0.5
                 moving = True
         elif direction == "left":
-            if level.tiles[int(self.row)][int(self.col-1)] != "#":
+            if level.tiles[int(self.row)][int(self.col-0.5)] != "#":
                 self.col -= 0.5
                 moving = True
         elif direction == "right":
