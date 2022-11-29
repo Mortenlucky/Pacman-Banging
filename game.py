@@ -23,7 +23,7 @@ running = True
 while running:
     
     if state == "LOAD":
-        pacman = PacMan(0,1)
+        pacman = PacMan(1,1)
         ghost = Ghost(3,2)
         direction = None
         level = Level("level.txt")
@@ -84,4 +84,4 @@ while running:
         pg.display.flip()  
 
         # Limit framerate by waiting a 10-100 milliseconds
-        time.sleep(0.15)
+        time.sleep(0.05)
