@@ -78,7 +78,7 @@ while running:
         screen.fill((0,0,0)) 
         level.draw(screen, pacman)
         ghost.draw(screen)
-        pacman.draw(screen, direction)
+        pacman.draw(screen)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
