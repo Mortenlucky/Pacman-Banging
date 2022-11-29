@@ -59,13 +59,17 @@ while running:
             # Keypresses
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_UP:
-                    direction = "up"
+                    if level.tiles[int(pacman.row-0.125)][int(pacman.col)] != "#" and pacman.col-int(pacman.col) == 0:
+                        direction = "up"
                 elif event.key == pg.K_DOWN:
-                    direction = "down"
+                    if level.tiles[int(pacman.row+1)][int(pacman.col)] != "#" and pacman.col-int(pacman.col) == 0:
+                        direction = "down"
                 elif event.key == pg.K_LEFT:
-                    direction = "left"
+                    if level.tiles[int(pacman.row)][int(pacman.col-0.125)] != "#" and pacman.row-int(pacman.row) == 0:
+                        direction = "left"
                 elif event.key == pg.K_RIGHT:
-                    direction = "right"
+                    if level.tiles[int(pacman.row)][int(pacman.col+1)] != "#" and pacman.row-int(pacman.row) == 0:
+                        direction = "right"
                 elif event.key == pg.K_ESCAPE:
                     running = False
 
