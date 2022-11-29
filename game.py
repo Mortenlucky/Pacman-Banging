@@ -10,8 +10,8 @@ from level import Level
 
 ## Setup ##
 pg.init()
-width = 608 #8*32
-height = 384 #7*32
+width = 610 #8*32
+height = 675 #7*32
 screen = pg.display.set_mode((width,height))
 pg.display.set_caption("Pac-Man (clone)")
 
@@ -24,7 +24,7 @@ while running:
     
     if state == "LOAD":
         screen.fill((0,0,0)) 
-        pacman = PacMan(0,1)
+        pacman = PacMan(1,1)
         ghost = Ghost(3,2)
         #ghost2 = Ghost(5,2)
         direction = None
@@ -34,7 +34,7 @@ while running:
 
     elif state == "READY":
         text = font_press_enter.render("Press [Enter] to play", True, (220,220,10))
-        text_rect = text.get_rect(center=(608/2, 384/2)) 
+        text_rect = text.get_rect(center=(width/2, height/2)) 
         screen.blit(text, text_rect)
 
         events = pg.event.get()
@@ -74,8 +74,7 @@ while running:
 
         ## Move / logic ##
         pacman.move(level,direction)
-        ghost.move(level, pacman.row, pacman.col)
-        #ghost2.move(level, pacman.row, pacman.col)
+        ghost.move(level)
 
 
         ## Draw ##
@@ -90,4 +89,4 @@ while running:
 
         # Limit framerate by waiting a 10-100 milliseconds
         state = pacman.state
-        time.sleep(0.15)
+        time.sleep(0.05)
