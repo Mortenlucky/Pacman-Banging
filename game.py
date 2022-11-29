@@ -59,17 +59,13 @@ while running:
             # Keypresses
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_UP:
-                    if level.tiles[int(pacman.row-0.125)][int(pacman.col)] != "#" and pacman.col-int(pacman.col) == 0:
-                        direction = "up"
+                    direction = "up"
                 elif event.key == pg.K_DOWN:
-                    if level.tiles[int(pacman.row+1)][int(pacman.col)] != "#" and pacman.col-int(pacman.col) == 0:
-                        direction = "down"
+                    direction = "down"
                 elif event.key == pg.K_LEFT:
-                    if level.tiles[int(pacman.row)][int(pacman.col-0.125)] != "#" and pacman.row-int(pacman.row) == 0:
-                        direction = "left"
+                    direction = "left"
                 elif event.key == pg.K_RIGHT:
-                    if level.tiles[int(pacman.row)][int(pacman.col+1)] != "#" and pacman.row-int(pacman.row) == 0:
-                        direction = "right"
+                    direction = "right"
                 elif event.key == pg.K_ESCAPE:
                     running = False
 
@@ -82,7 +78,7 @@ while running:
         screen.fill((0,0,0)) 
         level.draw(screen, pacman)
         ghost.draw(screen)
-        pacman.draw(screen, direction)
+        pacman.draw(screen)
 
         # Update window with newly drawn pixels
         pg.display.flip()  
