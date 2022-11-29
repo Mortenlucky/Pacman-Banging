@@ -74,7 +74,7 @@ while running:
 
         ## Move / logic ##
         pacman.move(level,direction)
-        ghost.move(level)
+        ghost.move(level, pacman.row, pacman.col)
 
 
         ## Draw ##

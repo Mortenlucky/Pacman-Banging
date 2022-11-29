@@ -30,7 +30,7 @@ class Ghost:
         movement_col = 0
         movement_row = 0
         self.prev_mov = [0,0]
-        if self.tick%2 == 1:
+        if self.tick%6 == 1:
             if pacr > self.row:
                 movement_row = 1
                 if level.tiles[self.row+movement_row][self.col] != "#" and self.row+movement_row != self.prev_mov[0]:
