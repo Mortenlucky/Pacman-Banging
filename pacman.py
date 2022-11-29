@@ -29,22 +29,56 @@ class PacMan:
         moving = False
         # self_row = self_x
         # self_col = self_y
-        print(self.row, self.col)
+        # If pacman = 0 --> teleport
+        # Coordinate to <: (0,10)
+        # Coordinate to >: (19,10)
         if direction == "up":
-            if level.tiles[int(self.row-0.125)][int(self.col)] != "#" and self.col-int(self.col) == 0:
-                self.row -= 0.125
+            if level.tiles[self.row-1][self.col] != "<":
+                self.row = 19
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row+1][self.col] != ">":
+                self.row = 0
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row-1][self.col] != "#":
+                self.row -= 1
                 moving = True
         elif direction == "down":
-            if level.tiles[int(self.row+1)][int(self.col)] != "#" and self.col-int(self.col) == 0:
-                self.row += 0.125
+            if level.tiles[self.row-1][self.col] != "<":
+                self.row = 19
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row+1][self.col] != ">":
+                self.row = 0
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row+1][self.col] != "#":
+                self.row += 1
                 moving = True
         elif direction == "left":
-            if level.tiles[int(self.row)][int(self.col-0.125)] != "#" and self.row-int(self.row) == 0:
-                self.col -= 0.125
+            if level.tiles[self.row-1][self.col] != "<":
+                self.row = 19
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row+1][self.col] != ">":
+                self.row = 0
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row][self.col-1] != "#":
+                self.col -= 1
                 moving = True
         elif direction == "right":
-            if level.tiles[int(self.row)][int(self.col+1)] != "#" and self.row-int(self.row) == 0:
-                self.col += 0.125
+            if level.tiles[self.row-1][self.col] != "<":
+                self.row = 19
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row+1][self.col] != ">":
+                self.row = 0
+                self.col = 10
+                moving = True
+            elif level.tiles[self.row][self.col+1] != "#":
+                self.col += 1 
                 moving = True
 
         if level.tiles[int(self.row)][int(self.col)] == " ":
