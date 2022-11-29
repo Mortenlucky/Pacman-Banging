@@ -29,32 +29,24 @@ class PacMan:
         # self_row = self_x
         # self_col = self_y
         if direction == "up":
-            if level.tiles[self.row-1][self.col] != "<":
-                #self.row == x-coordinate to >
-                #self.col == y-coordinate to >
-                moving = True
-            if level.tiles[self.row-1][self.col] != ">":
-                #self.row == coordinate to <
-                #self.col == coordinate to <
-                moving = True
-            if level.tiles[self.row-1][self.col] != "#":
-                self.row -= 1
+            if level.tiles[int(self.row-1)][int(self.col)] != "#":
+                self.row -= 0.5
                 moving = True
         elif direction == "down":
-            if level.tiles[self.row+1][self.col] != "#":
-                self.row += 1
+            if level.tiles[int(self.row+1)][int(self.col)] != "#":
+                self.row += 0.5
                 moving = True
         elif direction == "left":
-            if level.tiles[self.row][self.col-1] != "#":
-                self.col -= 1
+            if level.tiles[int(self.row)][int(self.col-1)] != "#":
+                self.col -= 0.5
                 moving = True
         elif direction == "right":
-            if level.tiles[self.row][self.col+1] != "#":
-                self.col += 1 
+            if level.tiles[int(self.row)][int(self.col+1)] != "#":
+                self.col += 0.5
                 moving = True
 
-        if level.tiles[self.row][self.col] == " ":
-            level.tiles[self.row][self.col] = "."
+        if level.tiles[int(self.row)][int(self.col)] == " ":
+            level.tiles[int(self.row)][int(self.col)] = "."
             self.point += 10
             #run = True
             #templist = []
@@ -69,6 +61,13 @@ class PacMan:
                 #level.tiles[self.row].append(templist[i+1])
             
             #level.tiles[self.row] = level.tiles[self.row][:self.col] + ["p"] + level.tiles[self.row][self.col+1:]
+
+            #if level.tiles[int(self.row)][int(self.col)] != "<":
+                #self.row == x-coordinate to >
+                #self.col == y-coordinate to >
+            #if level.tiles[int(self.row)][int(self.col)] != ">":
+                #self.row == coordinate to <
+                #self.col == coordinate to <
 
         if moving:
             if self.tick%2 == 0:

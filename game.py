@@ -23,7 +23,7 @@ running = True
 while running:
     
     if state == "LOAD":
-        pacman = PacMan(0,1)
+        pacman = PacMan(1,1)
         ghost = Ghost(3,2)
         direction = None
         level = Level("level.txt")
