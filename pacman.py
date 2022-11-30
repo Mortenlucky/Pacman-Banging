@@ -36,16 +36,16 @@ class PacMan:
         if direction == "up":
             if level.tiles[int(self.row-0.125)][int(self.col)] != "#" and self.col-int(self.col) == 0:
                 self.direction = "up"
-        if direction == "down":
+        elif direction == "down":
             if level.tiles[int(self.row+1)][int(self.col)] != "#" and self.col-int(self.col) == 0:
                 self.direction = "down"
-        if direction == "left":
+        elif direction == "left":
             if level.tiles[int(self.row)][int(self.col-0.125)] != "#" and self.row-int(self.row) == 0:
                 self.direction = "left"
-        if direction == "right":
+        elif direction == "right":
             if level.tiles[int(self.row)][int(self.col+1)] != "#" and self.row-int(self.row) == 0:
                 self.direction = "right"
-        
+
         # Actual Direction
 
         if self.direction == "up":

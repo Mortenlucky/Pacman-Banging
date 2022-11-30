@@ -77,6 +77,7 @@ while running:
         ghost.move(level, pacman.row, pacman.col)
 
 
+
         ## Draw ##
         screen.fill((0,0,0)) 
         level.draw(screen, pacman)
